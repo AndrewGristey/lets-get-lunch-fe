@@ -8,11 +8,14 @@ import { HomeComponent } from './home/home.component';
 import { AuthService } from './services/auth/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Ng2Webstorage } from 'ngx-webstorage';
+import { AuthGuard } from './guards/auth/auth.guard';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +23,7 @@ import { Ng2Webstorage } from 'ngx-webstorage';
     HttpClientModule,
     Ng2Webstorage
   ],
-  providers: [AuthService],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
